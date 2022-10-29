@@ -48,6 +48,8 @@ const Cargar = () => {
 let nombreDisco;
 let nombreAutor;
 let codigo;
+let nombrePista;
+let duracionPista;
 
  do {
     nombreDisco=prompt("ingrese nombre del disco")
@@ -63,6 +65,26 @@ let codigo;
     codigo=prompt("ingrese codigo del disco")
 
  } while (!(codigo>=1 && codigo<=999));
+ 
+ //guardar pistas 
+
+ let pistas=[]
+
+ //pedir pistas 
+
+ do {
+ nombrePista= prompt ("ingrese nombre de la pista ")
+ duracionPista=Number (prompt("ingrese duracion de la pista"))
+    
+ } while (confirm("Desa cargar otra pista?"));
+
+ 
+ //crear objeto pista
+  let pista={
+    nombre:nombrePista,
+    duracion:duracionPista,
+ }
+
  
  
 
