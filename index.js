@@ -47,44 +47,64 @@ const Cargar = () => {
  //pedir datos y validar
 let nombreDisco;
 let nombreAutor;
-let codigo;
+let codigoDisco;
 let nombrePista;
 let duracionPista;
+
+    
 
  do {
     nombreDisco=prompt("ingrese nombre del disco")
 
- } while (nombreDisco==="");                         
-
- do {
-    nombreAutor=prompt("ingrese nombre del autor del disco")
-
- } while (nombreDisco==="");   
-
- do {
-    codigo=prompt("ingrese codigo del disco")
-
- } while (!(codigo>=1 && codigo<=999));
+ } while (nombreDisco==="");       
  
- //guardar pistas 
+ do {
+    nombreAutor=prompt("ingrese nombre del autor")
+ } while (nombreAutor==="");
+  
+
+ do {
+    codigoDisco=Number (prompt("ingrese codigo del disco"))
+
+    
+} while (!(codigoDisco>=1 && codigoDisco<=999) || (codigoDisco===""));
+//guardar disco.
+let disco={
+    nombre:nombreDisco,
+    autor:nombreAutor,
+    codigo:codigoDisco,
+    }
+    discos.push(disco)
+
 
  let pistas=[]
 
  //pedir pistas 
-
+ do{
  do {
  nombrePista= prompt ("ingrese nombre de la pista ")
- duracionPista=Number (prompt("ingrese duracion de la pista"))
-    
- } while (confirm("Desa cargar otra pista?"));
+ }while(nombrePista==="")
 
- 
+ do {
+ duracionPista=Number (prompt("ingrese duracion de la pista"))
+} while (duracionPista==="");
  //crear objeto pista
-  let pista={
+ let pista={
     nombre:nombrePista,
     duracion:duracionPista,
  }
 
+ //guardar pista 
+ pistas.push(pista) 
+
+    
+ } while (confirm("¿Desa cargar otra pista?"));
+
+ console.log(discos)
+ console.log(pistas)
+
+
+ 
  
  
 
