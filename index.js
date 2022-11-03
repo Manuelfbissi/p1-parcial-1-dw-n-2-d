@@ -1,75 +1,20 @@
 'use strict';
-
-/*
- * APELLIDO, NOMBRE | APELLIDO, NOMBRE
- */
-
-// Ejemplo de la estructura de un disco:
-// let disco = {
-//     Nombre: 'El lado oscuro de la Programación',
-//     Autor: 'Los Programadores Anónimos',
-//     Codigo: 1,
-//     Pistas: [
-//         {
-//             Nombre: 'Esa cajita loca llamada variablecita',
-//             Duracion: 200,
-//         },
-//         {
-//             Nombre: 'Nunca quise ser un NaN',
-//             Duracion: 180,
-//         },
-//         {
-//             Nombre: 'No quiero programar',
-//             Duracion: 90,
-//         },
-//         {
-//             Nombre: 'Bajo presión',
-//             Duracion: 240,
-//         },
-//         {
-//             Nombre: 'La odisea de las variables privadas',
-//             Duracion: 120,
-//         },
-//         {
-//             Nombre: 'Sr. Programador',
-//             Duracion: 720,
-//         },
-//     ],
-// };
-
-// Discos:
-let discos = [];
-
-
-
-// Función Cargar:
-const Cargar = () => {
- //pedir datos y validar
 let nombreDisco;
 let nombreAutor;
 let codigoDisco;
 let nombrePista;
 let duracionPista;
+// Discos:
+let discos = [];
+let pistas=[]
 
+
+const Cargar = () => {
     
-
- do {
-    nombreDisco=prompt("ingrese nombre del disco")
-
- } while (nombreDisco==="");       
+ pedirDisco()
  
- do {
-    nombreAutor=prompt("ingrese nombre del autor")
- } while (nombreAutor==="");
-  
-
- do {
-    codigoDisco=Number (prompt("ingrese codigo del disco"))
-
-    
-} while (!(codigoDisco>=1 && codigoDisco<=999) || (codigoDisco===""));
-//guardar disco.
-let disco={
+ //guardar disco.
+ let disco={
     nombre:nombreDisco,
     autor:nombreAutor,
     codigo:codigoDisco,
@@ -77,41 +22,20 @@ let disco={
     discos.push(disco)
 
 
- let pistas=[]
+
 
  //pedir pistas 
- do{
- do {
- nombrePista= prompt ("ingrese nombre de la pista ")
- }while(nombrePista==="")
-
- do {
- duracionPista=Number (prompt("ingrese duracion de la pista"))
-} while (duracionPista==="");
- //crear objeto pista
- let pista={
+pedirPista()
+//crear objeto pista 
+let pista={
     nombre:nombrePista,
     duracion:duracionPista,
- }
+}
 
- //guardar pista 
- pistas.push(pista) 
+pistas.push(pista)
 
-    
- } while (confirm("¿Desa cargar otra pista?"));
-
- console.log(discos)
- console.log(pistas)
-
-
- 
- 
- 
-
-
-
-
-
+console.log(discos)
+console.log(pistas)
 };
 
 
@@ -131,3 +55,52 @@ const Mostrar = () => {
 };
 
 // Todas las funciones que necesites:
+function pedirDisco (){
+    do {
+        nombreDisco=prompt("ingrese nombre del disco")
+        if (nombreDisco==="") {
+        alert ("complete el campo")
+        }
+     } while (nombreDisco==="");       
+    
+     do {
+        nombreAutor=prompt("ingrese nombre del autor")
+        if (nombreAutor==="") {
+            alert ("complete el campo")
+            }
+     } while (nombreAutor==="");
+      
+    
+     do {
+        codigoDisco=Number (prompt("ingrese codigo del disco"))
+        if (codigoDisco===""||(!(codigoDisco>=1 && codigoDisco<=999)) ) {
+            alert ("el valor debe ser mayor a 1 y menor a 999")
+            
+            }
+        } while (!(codigoDisco>=1 && codigoDisco<=999) || (codigoDisco===""));
+    
+
+}
+
+function pedirPista(){
+    do {
+        do {
+        nombrePista=prompt ("ingrese nombre de la pista")
+         if (nombrePista==="") {
+            alert ("complete el campo")
+         }
+        } while (nombrePista==="");
+
+        do {
+            duracionPista=prompt("ingrese la duracion de la pista expresada en segundos")
+            if ((duracionPista==="") || (isNaN (duracionPista))) {
+                alert ("ingrese la duracion de la pista expresada en segundos")
+                }
+        } while ((duracionPista==="") || (isNaN (duracionPista)));
+        
+        
+    
+    } while (confirm("desea cargar otra pista?"));
+        
+       
+}
