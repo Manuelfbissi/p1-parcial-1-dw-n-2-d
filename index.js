@@ -7,7 +7,7 @@ let duracionPista;
 let contadorDiscos=1;
 // Discos:
 let discos = [];
-let pistas=[]
+let pistas=[];
 
 
 const Cargar = () => {
@@ -15,23 +15,13 @@ const Cargar = () => {
 pedirDisco()
  //guardar disco.
  
- let disco={
-     nombre:nombreDisco,
-     autor:nombreAutor,
-     codigo:codigoDisco,
-     pistas:[],
-     }
-     discos.push(disco)
+ 
      
 //pedir pistas 
 pedirPista()
 
 //crear objeto pista 
-let pista={
-    nombre:nombrePista,
-    duracion:duracionPista,
-}
-pistas.push(pista)
+
 
 } while (confirm("¿Desea ingresar otro disco?"));
 console.log (contadorDiscos++)
@@ -39,7 +29,6 @@ console.log(discos)
 console.log(pistas)
 
 };
-
 
 // Todas las funciones que necesites:
 function pedirDisco (){
@@ -65,7 +54,14 @@ function pedirDisco (){
             
             }
         } while (!(codigoDisco>=1 && codigoDisco<=999) || (codigoDisco===""));
-    
+        
+        let disco={
+            nombre:nombreDisco,
+            autor:nombreAutor,
+            codigo:codigoDisco,
+            pista:pistas,
+            }
+            discos.push(disco)
 
 }
 
@@ -85,15 +81,28 @@ function pedirPista(){
                 }
         } while ((duracionPista==="") || (isNaN (duracionPista)));
         
+        let pista={
+            nombre:nombrePista,
+            duracion:duracionPista,
+        }
+        pistas.push(pista)
         
     
     } while (confirm("¿Desea cargar otra pista?"));
+    return pistas;
+    return discos;
+
         
        
 }
 
 // Función Mostrar:
 function Mostrar(){
+
+    
+    
+    
+        
     // Variable para ir armando la cadena:
    let html = "<ul>";
 
@@ -107,14 +116,11 @@ function Mostrar(){
     html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].codigo}</li>`
 
     
-    
-    for (let j= 0; j < discos.pistas.length; j++){
+}
+ for (let j = 0; j < pistas.length; j++){
     html += `<strong> Nombre de la pista: </strong> <li> ${pistas[j].nombre}</li>`
     html += `<strong> Duracion de la pista: </strong> <li> ${pistas[j].duracion}</li>`
     }
-
-}
-
  html+= "</ul>";
      
    
