@@ -129,8 +129,8 @@ function Mostrar(){
     html += `<strong> Nombre del disco: </strong> <li> ${discos[i].nombre}</li>`;
     html += `<strong> Autor: </strong> <li> ${discos[i].autor}</li>`;
     html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].codigo}</li>`;
-    html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].pista}</li>`;
-    html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].duracion}</li>`;
+    html += `<strong> Pista: </strong> <li> ${discos[i].pista}</li>`;
+    html += `<strong> Duracion: </strong> <li> ${discos[i].duracion}</li>`;
       
       
       
