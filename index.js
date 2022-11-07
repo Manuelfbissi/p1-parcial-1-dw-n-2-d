@@ -7,7 +7,7 @@ let duracionPista;
 let contadorDiscos=1;
 let disco;
 let pista;
-let color="red";
+
 
 // Discos:
 let discos = [];
@@ -16,7 +16,7 @@ let pistas=[];
 
              
 const Cargar = () => {
- do {
+
 pedirDisco()
 
  //guardar disco.
@@ -29,7 +29,7 @@ pedirPista()
 //crear objeto pista 
 
 
-} while (confirm("¿Desea ingresar otro disco?"));
+
 //console.log (contadorDiscos++)
 console.log(discos)
 
@@ -84,14 +84,14 @@ function pedirPista(){
          }
         } while (nombrePista==="");
 
+        
         do {
             duracionPista=prompt("Ingrese la duracion de la pista expresada en segundos")
-            if ((duracionPista==="") || (isNaN (duracionPista))) {
-                alert ("Ingrese la duracion de la pista expresada en segundos")
+            if ((duracionPista==="") || (isNaN (duracionPista)) || (duracionPista > 7200)) {
+                alert ("la duracion permitida es de 0 a 7200 segundos")
                 }
 
-          
-        } while ((duracionPista==="") || (isNaN (duracionPista)));
+            } while ((duracionPista==="") || (isNaN (duracionPista))|| (duracionPista > 7200));
 
         let pista={
             nombre:nombrePista,
@@ -135,7 +135,7 @@ function Mostrar(){
     
     for (let j = 0; j < pistas.length; j++){
     html += `<strong> Nombre de la pista: </strong> <li> ${pistas[j].nombre}</li>`;
-    html += `<strong> duracion de la pista: </strong style = "color: ${color}"> <li> ${pistas[j].duracion}</li>`;
+    html += `<strong> duracion de la pista: </strong> <li> ${pistas[j].duracion}</li>`;
 }
 
 }
