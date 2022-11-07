@@ -16,7 +16,7 @@ let pistas=[];
 
              
 const Cargar = () => {
-
+ 
 pedirDisco()
 
  //guardar disco.
@@ -26,7 +26,17 @@ pedirDisco()
 //pedir pistas 
 pedirPista()
 
-//crear objeto pista 
+let disco={
+    nombre:nombreDisco,
+    autor:nombreAutor,
+    codigo:codigoDisco,
+    pista:nombrePista,
+    duracion:duracionPista
+    }
+    discos.push(disco)
+   
+
+return discos;
 
 
 
@@ -62,15 +72,7 @@ function pedirDisco (){
             
         } while  ((codigoDisco==="") || (!(codigoDisco>=1 && codigoDisco<=999) ) || (discos.length === codigoDisco));
 
-        let disco={
-            nombre:nombreDisco,
-            autor:nombreAutor,
-            codigo:codigoDisco,
-            }
-            discos.push(disco)
-           
         
-        return discos;
            
 
 }
@@ -93,16 +95,12 @@ function pedirPista(){
 
             } while ((duracionPista==="") || (isNaN (duracionPista))|| (duracionPista > 7200));
 
-        let pista={
-            nombre:nombrePista,
-            duracion:duracionPista,
-        }
-        pistas.push(pista)
+        
           
         
     
     } while (confirm("¿Desea cargar otra pista?"));
-    return pistas; 
+  
 
 
 
@@ -131,12 +129,11 @@ function Mostrar(){
     html += `<strong> Nombre del disco: </strong> <li> ${discos[i].nombre}</li>`;
     html += `<strong> Autor: </strong> <li> ${discos[i].autor}</li>`;
     html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].codigo}</li>`;
+    html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].pista}</li>`;
+    html += `<strong> Codigo unico del disco: </strong> <li> ${discos[i].duracion}</li>`;
       
-    
-    for (let j = 0; j < pistas.length; j++){
-    html += `<strong> Nombre de la pista: </strong> <li> ${pistas[j].nombre}</li>`;
-    html += `<strong> duracion de la pista: </strong> <li> ${pistas[j].duracion}</li>`;
-}
+      
+      
 
 }
     
